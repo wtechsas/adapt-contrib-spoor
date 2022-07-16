@@ -1,0 +1,17 @@
+{
+  "name": "adapt-contrib-spoor",
+  "version": "10.0.0",
+  "framework": ">=5.19.1",
+  "homepage": "https://github.com/wtechsas/adapt-contrib-spoor",
+  "bugs": "https://github.com/wtechsas/adapt-contrib-spoor/issues",
+  "extension" : "spoor",
+  "displayName" : "Spoor",
+  "description": "Una extensión que permite el seguimiento básico de SCORM",
+  "main": "/js/adapt-contrib-spoor.js",
+  "keywords": [
+    "adapt-plugin",
+    "adapt-extension"
+  ],
+  "license": "GPL-3.0",
+  "targetAttribute": "_spoor"
+}

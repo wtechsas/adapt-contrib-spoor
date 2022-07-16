@@ -1,0 +1,359 @@
+{
+  "type": "object",
+  "$schema": "http://json-schema.org/draft-04/schema",
+  "id": "http://jsonschema.net",
+  "required": false,
+  "properties": {
+    "pluginLocations": {
+      "type": "object",
+      "required": true,
+      "properties": {
+        "config": {
+          "type": "object",
+          "properties": {
+            "_spoor": {
+              "type": "object",
+              "required": false,
+              "legend": "Spoor (SCORM)",
+              "properties": {
+                "_isEnabled": {
+                  "type": "boolean",
+                  "required": true,
+                  "default": true,
+                  "title": "Habilitado",
+                  "inputType": "Checkbox",
+                  "validators": [],
+                  "help": "Si está habilitado, el complemento intentará encontrar y rastrear un LMS compatible con SCORM. Desmarque para desactivar el seguimiento SCORM."
+                },
+                "_tracking": {
+                  "type": "object",
+                  "required": false,
+                  "title": "Seguimiento",
+                  "properties": {
+                    "_shouldStoreResponses": {
+                      "type": "boolean",
+                      "required": false,
+                      "default": true,
+                      "title": "Almacenar el estado de la pregunta",
+                      "inputType": "Checkbox",
+                      "validators": [],
+                      "help": "Si está habilitado, las respuestas del usuario a las preguntas se guardarán y restaurarán en cada sesión. Nota: esta configuración debe estar habilitada en la mayoría de los casos."
+                    },
+                    "_shouldStoreAttempts": {
+                      "type": "boolean",
+                      "required": false,
+                      "default": false,
+                      "title": "Almacenar estados de intento de pregunta",
+                      "inputType": "Checkbox",
+                      "validators": [],
+                      "help": "Si está habilitado, se guardará y restaurará un historial de las respuestas del usuario a las preguntas en cada sesión. Nota: esta configuración debe estar deshabilitada en la mayoría de los casos."
+                    },
+                    "_shouldRecordInteractions": {
+                      "type": "boolean",
+                      "required": false,
+                      "default": true,
+                      "title": "Guardar interacciones",
+                      "inputType": "Checkbox",
+                      "validators": [],
+                      "help": "Si está habilitado, el curso registrará las respuestas del usuario a las preguntas en los campos de datos SCORM de cmi.interactions."
+                    },
+                    "_shouldCompress": {
+                      "type": "boolean",
+                      "required": false,
+                      "default": false,
+                      "title": "Debe comprimir datos",
+                      "inputType": "Checkbox",
+                      "validators": [],
+                      "help": "Si está habilitado, los datos almacenados en el lms se comprimirán aún más."
+                    }
+                  }
+                },
+                "_reporting": {
+                  "type": "object",
+                  "required": true,
+                  "title": "Reportes",
+                  "properties": {
+                    "_onTrackingCriteriaMet": {
+                      "type": "string",
+                      "required": true,
+                      "default": "completed",
+                      "title": "Seguimiento del estado de éxito",
+                      "enum": [
+                        "completed",
+                        "passed",
+                        "failed",
+                        "incomplete"
+                      ],
+                      "inputType": {
+                        "type": "Select",
+                        "options": [
+                          {
+                            "val": "completed",
+                            "label": "Completado"
+                          },
+                          {
+                            "val": "passed",
+                            "label": "Aprobado"
+                          },
+                          {
+                            "val": "failed",
+                            "label": "Fallido"
+                          },
+                          {
+                            "val": "incomplete",
+                            "label": "Incompletado"
+                          }
+                        ]
+                      },
+                      "validators": [],
+                      "help": "Qué estado informar al LMS cuando se cumplen los criterios de seguimiento."
+                    },
+                    "_onAssessmentFailure": {
+                      "type": "string",
+                      "required": false,
+                      "default": "incomplete",
+                      "title": "Estado de falla de la evaluación",
+                      "enum": [
+                        "completed",
+                        "failed",
+                        "incomplete"
+                      ],
+                      "inputType": {
+                        "type": "Select",
+                        "options": [
+                          {
+                            "val": "completed",
+                            "label": "Completado"
+                          },
+                          {
+                            "val": "failed",
+                            "label": "Fallido"
+                          },
+                          {
+                            "val": "incomplete",
+                            "label": "Incompletado"
+                          }
+                        ]
+                      },
+                      "validators": [],
+                      "help": "Qué estado informar al LMS cuando falla la evaluación."
+                    },
+                    "_resetStatusOnLanguageChange": {
+                      "type": "boolean",
+                      "required": false,
+                      "default": false,
+                      "title": "¿Restablecer estado cuando el idioma cambia?",
+                      "inputType": "Checkbox",
+                      "validators": [],
+                      "help": "Si está habilitado, el estado del curso se restablecerá a 'incompleto' cuando el usuario cambie el idioma del curso."
+                    }
+                  }
+                },
+                "_advancedSettings": {
+                  "type": "object",
+                  "required": false,
+                  "title": "Ajustes avanzados",
+                  "properties": {
+                    "_showDebugWindow": {
+                      "type": "boolean",
+                      "required": false,
+                      "default": false,
+                      "title": "Ventana de depuración de SCORM",
+                      "inputType": "Checkbox",
+                      "validators": [],
+                      "help": "Si está habilitado, se mostrará una ventana emergente al iniciar el curso que brinda información detallada sobre las llamadas SCORM que se están realizando. Esto puede ser muy útil para depurar problemas de SCORM. Tenga en cuenta que esta ventana emergente aparecerá automáticamente si el código SCORM encuentra un error, incluso si está configurado como falso."
+                    },
+                    "_commitOnStatusChange": {
+                      "type": "boolean",
+                      "required": false,
+                      "default": true,
+                      "title": "Confirmar datos sobre el cambio de estado",
+                      "inputType": "Checkbox",
+                      "validators": [],
+                      "help": "Si está habilitado, se realizará una llamada de 'confirmación' cada vez que se cambie el estado de la lección."
+                    },
+                    "_commitOnAnyChange": {
+                      "type": "boolean",
+                      "required": false,
+                      "default": false,
+                      "title": "Confirmar datos en cualquier cambio",
+                      "inputType": "Checkbox",
+                      "validators": [],
+                      "help": "Si está habilitado, se realizará una llamada de 'confirmación' (guardar todos los datos) cada vez que se cambie un valor. Tenga en cuenta que habilitar esta configuración puede tener un impacto perjudicial en el servidor y solo debe usarse si es absolutamente necesario y solo después de una cuidadosa prueba de carga. Considere probar un valor más bajo para 'Frecuencia de confirmaciones automáticas' antes de cambiar esta configuración."
+                    },
+                    "_timedCommitFrequency": {
+                      "type": "number",
+                      "required": false,
+                      "default": "10",
+                      "title": "Frecuencia (min) de confirmaciones automáticas",
+                      "inputType": "Number",
+                      "validators": [
+                        "number"
+                      ],
+                      "help": "La frecuencia (en minutos) con la que se debe realizar automáticamente una llamada de 'confirmación'. Establézcalo en 0 para deshabilitar las confirmaciones automáticas por completo."
+                    },
+                    "_maxCommitRetries": {
+                      "type": "number",
+                      "required": false,
+                      "default": "5",
+                      "title": "Número máximo de reintentos de confirmación",
+                      "inputType": "Number",
+                      "validators": [
+                        "number"
+                      ],
+                      "help": "Si falla una llamada de 'confirmación', esta configuración controla cuántas veces se debe volver a intentar antes de darse por vencido y arrojar un error."
+                    },
+                    "_commitRetryDelay": {
+                      "type": "number",
+                      "required": false,
+                      "default": "2000",
+                      "title": "Retraso de reintento de confirmación",
+                      "inputType": "Number",
+                      "validators": [
+                        "number"
+                      ],
+                      "help": "Cuánto retraso (en milisegundos) dejar entre reintentos de confirmación."
+                    },
+                    "_suppressErrors": {
+                      "type": "boolean",
+                      "required": false,
+                      "default": false,
+                      "title": "Suprimir errores de LMS",
+                      "inputType": "Checkbox",
+                      "validators": [],
+                      "help": "Si está habilitado, los mensajes de error no se mostrarán cuando ocurran problemas de seguimiento de SCORM."
+                    },
+                    "_commitOnVisibilityChangeHidden": {
+                      "type": "boolean",
+                      "default": true,
+                      "title": "Comprometerse con el cambio de visibilidad oculto",
+                      "inputType": "Checkbox",
+                      "validators": [],
+                      "help": "Si está habilitado, se realizará una llamada de confirmación cada vez que la ventana del curso esté oculta/minimizada. Requiere un navegador que admita el evento 'cambio de visibilidad'."
+                    },
+                    "_manifestIdentifier": {
+                      "type": "string",
+                      "required": true,
+                      "default": "adapt_manifest",
+                      "title": "Identificador de manifiesto",
+                      "inputType": "Text",
+                      "validators": [
+                        "required"
+                      ],
+                      "help": "Establece el atributo 'identificador' en imsmanifest.xml"
+                    },
+                    "_exitStateIfIncomplete": {
+                      "type": "string",
+                      "required": false,
+                      "default": "auto",
+                      "title": "Estado de salida si está incompleto",
+                      "enum": [
+                        "auto",
+                        "suspend",
+                        "normal",
+                        ""
+                      ],
+                      "inputType": {
+                        "type": "Select",
+                        "options": [
+                          {
+                            "val": "auto",
+                            "label": "Auto"
+                          },
+                          {
+                            "val": "suspend",
+                            "label": "suspender"
+                          },
+                          {
+                            "val": "normal",
+                            "label": "Normal"
+                          },
+                          {
+                            "val": "",
+                            "label": "'' (empty string)"
+                          }
+                        ]
+                      },
+                      "validators": [],
+                      "help": "Qué estado de salida usar si el curso está incompleto."
+                    },
+                    "_exitStateIfComplete": {
+                      "type": "string",
+                      "required": false,
+                      "default": "auto",
+                      "title": "Estado de salida si está completo",
+                      "enum": [
+                        "auto",
+                        "suspend",
+                        "normal",
+                        ""
+                      ],
+                      "inputType": {
+                        "type": "Select",
+                        "options": [
+                          {
+                            "val": "auto",
+                            "label": "Auto"
+                          },
+                          {
+                            "val": "suspend",
+                            "label": "suspender"
+                          },
+                          {
+                            "val": "normal",
+                            "label": "Normal"
+                          },
+                          {
+                            "val": "",
+                            "label": "'' (empty string)"
+                          }
+                        ]
+                      },
+                      "validators": [],
+                      "help": "Qué estado de salida usar si el curso está completo."
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "course": {
+          "type": "object",
+          "properties": {
+            "_spoor": {
+              "type": "object",
+              "required": false,
+              "legend": "Spoor (SCORM)",
+              "properties": {
+                "_messages": {
+                  "type": "object",
+                  "default": {},
+                  "title": "Error de mensajes",
+                  "inputType": {
+                    "type": "CodeEditor",
+                    "mode": "json"
+                  },
+                  "validators": [],
+                  "help": "Objeto opcional que se puede usar para modificar/traducir los mensajes de error que muestra la extensión falsa"
+                }
+              }
+            }
+          }
+        },
+        "contentobject": {
+          "type": "object"
+        },
+        "article": {
+          "type": "object"
+        },
+        "block": {
+          "type": "object"
+        },
+        "component": {
+          "type": "object"
+        }
+      }
+    }
+  }
+}
