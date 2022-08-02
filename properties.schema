@@ -55,7 +55,7 @@
                       "title": "Guardar interacciones",
                       "inputType": "Checkbox",
                       "validators": [],
-                      "help": "Si está habilitado, el curso registrará las respuestas del usuario a las preguntas en los campos de datos SCORM de cmi.interactions."
+                      "help": "Si está habilitado, el Recurso registrará las respuestas del usuario a las preguntas en los campos de datos SCORM de cmi.interactions."
                     },
                     "_shouldCompress": {
                       "type": "boolean",
@@ -145,7 +145,7 @@
                       "title": "¿Restablecer estado cuando el idioma cambia?",
                       "inputType": "Checkbox",
                       "validators": [],
-                      "help": "Si está habilitado, el estado del curso se restablecerá a 'incompleto' cuando el usuario cambie el idioma del curso."
+                      "help": "Si está habilitado, el estado del Recurso se restablecerá a 'incompleto' cuando el usuario cambie el idioma del Recurso."
                     }
                   }
                 },
@@ -161,7 +161,7 @@
                       "title": "Ventana de depuración de SCORM",
                       "inputType": "Checkbox",
                       "validators": [],
-                      "help": "Si está habilitado, se mostrará una ventana emergente al iniciar el curso que brinda información detallada sobre las llamadas SCORM que se están realizando. Esto puede ser muy útil para depurar problemas de SCORM. Tenga en cuenta que esta ventana emergente aparecerá automáticamente si el código SCORM encuentra un error, incluso si está configurado como falso."
+                      "help": "Si está habilitado, se mostrará una ventana emergente al iniciar el Recurso que brinda información detallada sobre las llamadas SCORM que se están realizando. Esto puede ser muy útil para depurar problemas de SCORM. Tenga en cuenta que esta ventana emergente aparecerá automáticamente si el código SCORM encuentra un error, incluso si está configurado como falso."
                     },
                     "_commitOnStatusChange": {
                       "type": "boolean",
@@ -229,7 +229,7 @@
                       "title": "Comprometerse con el cambio de visibilidad oculto",
                       "inputType": "Checkbox",
                       "validators": [],
-                      "help": "Si está habilitado, se realizará una llamada de confirmación cada vez que la ventana del curso esté oculta/minimizada. Requiere un navegador que admita el evento 'cambio de visibilidad'."
+                      "help": "Si está habilitado, se realizará una llamada de confirmación cada vez que la ventana del Recurso esté oculta/minimizada. Requiere un navegador que admita el evento 'cambio de visibilidad'."
                     },
                     "_manifestIdentifier": {
                       "type": "string",
@@ -275,7 +275,7 @@
                         ]
                       },
                       "validators": [],
-                      "help": "Qué estado de salida usar si el curso está incompleto."
+                      "help": "Qué estado de salida usar si el Recurso está incompleto."
                     },
                     "_exitStateIfComplete": {
                       "type": "string",
@@ -310,7 +310,7 @@
                         ]
                       },
                       "validators": [],
-                      "help": "Qué estado de salida usar si el curso está completo."
+                      "help": "Qué estado de salida usar si el Recurso está completo."
                     }
                   }
                 }
